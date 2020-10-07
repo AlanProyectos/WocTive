@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
+import {User} from '../shared/User/user.class';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  user :User = new User();
 
-  constructor() { }
+  constructor(private authSvc : AuthService, private router: Router) { }
 
   ngOnInit() {
+  }
+  async onLogin(){
+    const user = await this.authSvc.onLogin(this.user);
+    if(user){
+      console.log('Usuario Logueado exitosamente!!!');
+      this.router.navigateByUrl('/admin');
+    }
   }
 
 }

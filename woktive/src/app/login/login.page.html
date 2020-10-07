@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar color="tertiary">
+    <ion-title>Iniciar Sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item class="marginInput">
+    <ion-label position="floating">
+      Email
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.email">
+
+    </ion-input>
+  </ion-item>
+  <ion-item class="marginInput">
+    <ion-label position="floating">
+      Password
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="user.password">
+      
+    </ion-input>
+  </ion-item>
+  <div class="row">
+    <div class="col-12 marginTop">
+      <ion-button expand="block" color="tertiary" size="large" (click)="onLogin()">
+        Iniciar Sesion
+      </ion-button>
+    </div>
+    <div class="col-12 marginTop">
+      <ion-button expand="block" color="tertiary" size="large" href="/register">
+        Registrar
+      </ion-button>
+    </div>
+
+  </div>
+
+
+
 
 </ion-content>

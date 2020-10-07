@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from '../shared/User/user.class';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,26 @@ export class AuthService
 
   constructor(public afAuth: AngularFireAuth) 
   { 
+    afAuth.authState.subscribe(user => (this.isLogged = user) );
+  }
 
+  //Login
+  async onLogin(user: User){
+    try{
+      return await this.afAuth.signInWithEmailAndPassword(user.email, user.password);
+    }
+    catch(error){
+      console.log("Error ->", error);
+    }
+  }
+
+  //Register
+  async onRegister(user:User){
+    try{
+      return await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
+    }
+    catch(error){
+      console.log("Error Register -> ",error);
+    }
   }
 }
