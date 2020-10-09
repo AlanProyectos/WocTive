@@ -1,5 +1,7 @@
 {
   "name": "woktive",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

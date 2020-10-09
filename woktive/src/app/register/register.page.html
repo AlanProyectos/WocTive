@@ -1,39 +1,75 @@
 <ion-header>
   <ion-toolbar color="tertiary">
-    <ion-title>Registrar Usuario</ion-title>
+    <ion-title>Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-item>
-    <ion-label position="floating">
-      Email
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="user.email">
+<ion-content>
 
-    </ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">
-      Password
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="user.password">
-      
-    </ion-input>
-  </ion-item>
+  <div class="container marginTop">
+    <div class="row">
+      <div class="col-12">
+        <ion-list *ngFor="let item of items">
+              <ion-img [src]="item.src"></ion-img>
+        </ion-list>
+      </div>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-12 mt-5">
-      <ion-button expand="block" color="tertiary" size="large" (click)="onRegister()">
+    <div class="col-12">
+      
+      <ion-item class="marginInput">
+        <ion-label position="floating">
+          Nombre
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="nombre">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="marginInput">
+        <ion-label position="floating">
+          Email
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="marginInput">
+        <ion-label position="floating">
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="password">
+        </ion-input>
+      </ion-item>
+      
+      <ion-item class="marginInput">
+        <ion-label>
+          ¿Alumno o Maestro?
+        </ion-label>
+        <ion-select [(ngModel)]="rol">
+          <ion-select-option value="maestro">
+            Maestro
+          </ion-select-option>
+          <ion-select-option value="alumno">
+            Alumno
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 marginTop">
+      <ion-button expand="block" color="tertiary" size="large" (click)="onSubmitRegister(email,password,rol,nombre)">
         Registrar
       </ion-button>
     </div>
-    
-    <ion-button expand="block" color="tertiary" size="large" href="/login">
-      Ya tengo cuenta!!!
-    </ion-button>
   </div>
-
-
-
-
+  <div class="row">
+    <div class="col-12 marginTop">
+      <ion-button expand="block" color="tertiary" size="large" href="/login">
+        Ya tengo Cuenta
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>verified-email</ion-title>
+  </ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/" color="light">
+
+    </ion-back-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user">
+  <ion-row>
+    <ion-col>
+      <h2>
+        Gracias Por Registrarte a la App Woktive
+      </h2>
+      <p>
+        Hemos mandando un correo de confirmacion a su 
+        <strong>
+          {{user.email}}
+        </strong>
+      </p>
+      <p>
+        Porfavor verifique tu correo puede aparecer en el apartado de no deseados y haga click en el link para verificar tu direccion de correo
+      </p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="tertiary" expand="block" (click)="onSendEmail()">
+        Reenviar el correo de Afirmación
+      </ion-button>
+      <br>
+      <ion-button type="submit" color="tertiary" expand="block" (click)="pageLogin()">
+        Ir a Login
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { User } from 'src/app/shared/user.class';
 import {AuthService} from '../services/auth.service';
-import {User} from '../shared/User/user.class';
 
+type Item ={
+  src: string;
+  text:string;
+}
 
 @Component({
   selector: 'app-register',
@@ -10,19 +14,31 @@ import {User} from '../shared/User/user.class';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  user :User = new User();
+
+  public email :string;
+  public password:string;
+  public rol:string;
+  public nombre:string;
+
+  
 
   constructor(private authSvc : AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  async onRegister(){
-    const user = await this.authSvc.onRegister(this.user);
-    if(user){
-      console.log('Usuario creado exitosamente!!!');
-      this.router.navigateByUrl('/');
+  items: Item[] = [
+    {
+      src: '../../../assets/img/woktive.png',
+      text: 'Logo'
     }
+  ];
+
+  onSubmitRegister(email,password,rol){
+    this.authSvc.onRegister(this.email,this.password,this.rol,this.nombre).then( auth =>{
+      this.router.navigate(['verified-email']);
+      console.log(auth);
+    }).catch(err => console.log(err));
   }
 
 }
