@@ -6,11 +6,11 @@
 
 <ion-content>
 
-  <div class="container marginTop">
+  <div class="mt-2">
     <div class="row">
       <div class="col-12">
         <ion-list *ngFor="let item of items">
-              <ion-img [src]="item.src"></ion-img>
+              <ion-img class="imgContainer" [src]="item.src"></ion-img>
         </ion-list>
       </div>
     </div>
@@ -34,16 +34,12 @@
       </ion-item>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12 marginTop">
-      <ion-button expand="block" color="tertiary" size="large" (click)="onLogin()">
+
+      <ion-button class="buttonContainer" expand="block" color="tertiary" size="large" (click)="onLogin()">
         Iniciar Sesion
       </ion-button>
-    </div>
-    <div class="col-12 marginTop">
-      <ion-button expand="block" color="tertiary" size="large" href="/register">
+
+      <ion-button class="buttonContainer" expand="block" color="tertiary" size="large" href="/register">
         Registrar
       </ion-button>
-    </div>
-  </div>
 </ion-content>

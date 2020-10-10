@@ -34,9 +34,9 @@ export class RegisterPage implements OnInit {
     }
   ];
 
-  onSubmitRegister(email,password,rol){
+  onSubmitRegister(email,password,rol,nombre){
     this.authSvc.onRegister(this.email,this.password,this.rol,this.nombre).then( auth =>{
-      this.router.navigate(['verified-email']);
+      this.router.navigate(['login']);
       console.log(auth);
     }).catch(err => console.log(err));
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { Users } from '../shared/users.class';
+import { User } from '../shared/user.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./verified-email.page.scss'],
 })
 export class VerifiedEmailPage implements OnInit {
-
-  public user$: Observable<Users> = this.authSvc.afAuth.user;
 
   constructor(private authSvc: AuthService,private router: Router) { }
 

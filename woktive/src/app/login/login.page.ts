@@ -33,6 +33,10 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    this.userId = this.route.snapshot.paramMap.get('id');
+    if(this.userId){
+      this.loadProducto();
+    }
   }
   async loadProducto(){
     const loading = await this.loadingController.create({
@@ -40,8 +44,6 @@ export class LoginPage implements OnInit {
     })
 
     await loading.present();
-
-
   }
 
 
@@ -49,8 +51,8 @@ export class LoginPage implements OnInit {
   async onLogin(){
     const user = await this.authSvc.onLogin(this.user);
     if(user){
-      const id = (user.user.uid);
-      this.router.navigateByUrl(`admin/${id}}`);
+      console.log(user.user.uid);
+      this.router.navigateByUrl(`admin/${user.user.uid}`);
     }
   }
 

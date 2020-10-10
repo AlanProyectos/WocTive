@@ -1,8 +1,6 @@
-export class User{
-    password:string;
+export interface User{
     email: string;
     nombre:string;
     rol:string;
     uid:string;
-    email_verified:boolean;
 }

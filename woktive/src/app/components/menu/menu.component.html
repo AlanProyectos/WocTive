@@ -7,15 +7,32 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-list>
-      <ion-item>
+    <ion-list *ngIf="this.rol == 'alumno'">
+      <ion-item (click)="misEquipos()">
         Mis Equipos
       </ion-item>
-      <ion-item>
+      <ion-item (click)="misProyectos()">
         Mis Proyectos
       </ion-item>
-      <ion-item>
-        Logros
+      <ion-item (click)="misCalificacion()">
+        Mis Calificacion
+      </ion-item>
+      <ion-item (click)="logOut()">
+        Salir
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="this.rol == 'maestro'">
+      <ion-item (click)="Tareas()">
+        Tareas
+      </ion-item>
+      <ion-item (click)="Calificacion()">
+        Calificacion
+      </ion-item>
+      <ion-item (click)="Equipos()">
+        Equipos
+      </ion-item>
+      <ion-item (click)="Clases()">
+        Mis Clases
       </ion-item>
       <ion-item (click)="logOut()">
         Salir

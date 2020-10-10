@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Users } from '../shared/users.class';
-import { AuthService } from '../services/auth.service';
+//import { User } from '../shared/user.class';
 import { LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { __awaiter } from 'tslib';
+import {UserService} from '../services/user.service';
+import {User} from '../shared/user.interface';
 
 @Component({
   selector: 'app-admin',
@@ -12,25 +14,26 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminPage implements OnInit {
 
-  usuarios : Users ={
-    uid:'',
-    email: '',
-    displayName:'',
-    emailVerified: false
+  usuarios : User ={
+    email:'',
+    nombre:'',
+    rol:'',
+    uid:''
   }
 
   userId = null;
 
-  constructor( private router : Router, private authSvc: AuthService, private loadingController: LoadingController,private route : ActivatedRoute ) { }
+  constructor( private router : Router, private loadingController: LoadingController,private route : ActivatedRoute, private userSvc :UserService ) { }
 
   
 
   ngOnInit() {
-    //this.userId = this.route.snapshot.paramMap.get('id');
-    // console.log(this.route.snapshot.paramMap.get('id'));
-    // if(this.userId){
-    //   this.loadProducto();
-    // }
+    this.userId = this.route.snapshot.paramMap.get('id');
+     this.userSvc.getUser(this.userId).subscribe(res =>{
+      console.log('Usuario',res);
+      this.usuarios = res;
+
+    })
   }
   redirectLogin(){
     this.router.navigateByUrl('/login');
@@ -38,17 +41,18 @@ export class AdminPage implements OnInit {
 
   async loadProducto(){
     const loading = await this.loadingController.create({
-      message: 'Loading.....'
+      message: 'Loading.....',
+      duration:2000
     })
 
-    //await loading.present();
+    await loading.present();
 
-    this.authSvc.getUser(this.userId);
-
+    
+    
   }
-
   getUsers(){
-    console.log(this.authSvc.getUser(this.route.snapshot.paramMap.get('id')));
+    this.loadProducto();
+    console.log(this.usuarios);
   }
 
 }

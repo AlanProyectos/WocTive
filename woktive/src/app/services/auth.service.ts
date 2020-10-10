@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Users } from '../shared/users.class';
 import { User } from '../shared/user.class';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable,of } from 'rxjs';
 import { switchMap, map  } from 'rxjs/operators';
-
-import * as firebase from 'firebase';
 
 
 @Injectable({
@@ -14,17 +11,17 @@ import * as firebase from 'firebase';
 })
 export class AuthService 
 {
-  public isLogged: any = false;
+  public isLogged: any = true;
 
-  public user$ : Observable<Users>
-  private usersCollection: AngularFirestoreCollection<Users>;
-  private users : Observable<Users[]>;
+  public user$ : Observable<User>
+  private usersCollection: AngularFirestoreCollection<User>;
+  private users : Observable<User[]>;
 
 
   constructor(public afAuth: AngularFireAuth,private db :AngularFirestore) 
   { 
     afAuth.authState.subscribe(user => (this.isLogged = user) );
-    this.usersCollection = db.collection<Users>('productos');
+    this.usersCollection = db.collection<User>('users');
     this.users = this.usersCollection.snapshotChanges().pipe(
       map(
         actions => {
@@ -41,7 +38,7 @@ export class AuthService
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user)=>{
         if(user){
-          return this.db.doc<Users>(`Users/${user.uid}`).valueChanges();
+          return this.db.doc<User>(`Users/${user.uid}`).valueChanges();
         }
         else{
           return of(null);
@@ -95,16 +92,5 @@ export class AuthService
     return email === true ? true : false;
   }
 
-  // private updateUserData(user:Users){
-  //   const userRef : AngularFirestoreDocument<Users> = this.afs.doc(`users/${user.uid}`);
-  //   const data : Users ={
-  //     uid: user.uid,
-  //     email: user.email,
-  //     emailVerified: user.emailVerified,
-  //     displayName: user.displayName
-  //   };
-
-  //   return userRef.set(data, {merge:true});
-  // }
 
 }
