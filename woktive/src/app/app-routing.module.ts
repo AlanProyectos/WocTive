@@ -4,8 +4,8 @@ import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
     canActivate:[AuthGuard]
   },
   {
@@ -18,8 +18,8 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'admin/:id',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
+    path: 'home/:id',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     canActivate:[AuthGuard]
   },
   {
@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'equipo',
+    loadChildren: () => import('./equipo/equipo.module').then( m => m.EquipoPageModule)
   },
 ];
 

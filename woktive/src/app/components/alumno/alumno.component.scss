@@ -1,0 +1,35 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.importanteUrgente{
+    background-color: #d90710;
+    
+}
+.impotanteNoUrgente{
+    background-color: #024a9c;
+}
+.noImportanteUrgente{
+    background-color: #fb9320;
+    height: 150px;
+}
+.noImportanteNoUrgente{
+    background-color: #a0a1b6;
+    height: 150px;
+}
+.textoCss{
+    writing-mode: vertical-rl;
+}
+
+.tareas{
+    font-size: 70px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.titulo{
+    margin-left:2rem;
+}

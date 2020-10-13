@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 
   items: Item[] = [
     {
-      src: '../../../assets/img/woktive.png',
+      src: '../../../assets/img/woctive.jpeg',
       text: 'Logo'
     }
   ];
@@ -52,7 +52,7 @@ export class LoginPage implements OnInit {
     const user = await this.authSvc.onLogin(this.user);
     if(user){
       console.log(user.user.uid);
-      this.router.navigateByUrl(`admin/${user.user.uid}`);
+      this.router.navigateByUrl(`home/${user.user.uid}`);
     }
   }
 

@@ -1,28 +1,18 @@
-<app-menu [rol]="usuarios.rol"></app-menu>
-
-
   <ion-header>
-    <ion-toolbar color="tertiary">
+    <ion-toolbar color="dark">
       <ion-title>
-        Pagina Principal
+        Admin
       </ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-content id="principal" >
-    <div class="container" *ngIf="usuarios.rol == 'alumno'">
-      <app-alumno [nombre]="usuarios.nombre" [rol]="usuarios.rol">
-
-      </app-alumno>
-    </div>
-    <div class="container" *ngIf="usuarios.rol == 'maestro'">
-      <app-maestro [nombre]="usuarios.nombre">
-
-      </app-maestro>
-    </div>
-    
-    
+  <ion-content >
+<p>
+  Admin Page
+</p>
   </ion-content>
+
+
 
 
 

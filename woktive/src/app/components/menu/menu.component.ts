@@ -40,7 +40,7 @@ export class MenuComponent implements OnInit {
 
   //Rol: Alumno
   misEquipos(){
-    console.log('Te mandara a tus equipos alumno');
+    this.router.navigateByUrl('equipo');
   }
   misProyectos(){
     console.log('Te mandara a tus proyecto alumno');

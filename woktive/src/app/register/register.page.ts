@@ -29,7 +29,7 @@ export class RegisterPage implements OnInit {
 
   items: Item[] = [
     {
-      src: '../../../assets/img/woktive.png',
+      src: '../../../assets/img/woctive.jpeg',
       text: 'Logo'
     }
   ];
