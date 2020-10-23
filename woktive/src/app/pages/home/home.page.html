@@ -1,0 +1,19 @@
+<app-menu [rol]="usuarios.rol"></app-menu>
+  <app-header titulo="Home"></app-header>
+  
+  <ion-content id="principal" color="dark" >
+    <div class="container" *ngIf="usuarios.rol == 'alumno'">
+      <app-alumno [nombre]="usuarios.nombre" [rol]="usuarios.rol">
+
+      </app-alumno>
+    </div>
+    <div class="container" *ngIf="usuarios.rol == 'maestro'">
+      <app-maestro>
+
+      </app-maestro>
+    </div>
+
+    <ion-button color="dark" (click)="redirectProyectos()">
+      Mandar a Proyectos
+    </ion-button>
+  </ion-content>

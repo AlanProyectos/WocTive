@@ -5,8 +5,8 @@ import {AlumnoComponent} from './alumno/alumno.component';
 import {MaestroComponent} from './maestro/maestro.component';
 import {SlidesComponent} from './slides/slides.component';
 import {SlidesTeamsComponent} from './slides-teams/slides-teams.component';
-import {TabsComponent} from './tabs/tabs.component'
 import {IonicModule} from '@ionic/angular';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     declarations:[
@@ -15,7 +15,7 @@ import {IonicModule} from '@ionic/angular';
         MaestroComponent,
         SlidesComponent,
         SlidesTeamsComponent,
-        TabsComponent
+        HeaderComponent
     ],
     exports:[
         MenuComponent,
@@ -23,7 +23,8 @@ import {IonicModule} from '@ionic/angular';
         MaestroComponent,
         SlidesComponent,
         SlidesTeamsComponent,
-        TabsComponent
+        HeaderComponent
+
     ],
     imports: [
         CommonModule,

@@ -4,36 +4,50 @@ import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
-    canActivate:[AuthGuard]
-  },
-  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'home/:id',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    path:'',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m=> m.TabsPageModule),
     canActivate:[AuthGuard]
   },
   {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
     path: 'verified-email',
-    loadChildren: () => import('./verified-email/verified-email.module').then( m => m.VerifiedEmailPageModule)
+    loadChildren: () => import('./pages/verified-email/verified-email.module').then( m => m.VerifiedEmailPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
-    path: 'equipo',
-    loadChildren: () => import('./equipo/equipo.module').then( m => m.EquipoPageModule)
+    path: 'notificaciones',
+    loadChildren: () => import('./pages/notificaciones/notificaciones.module').then( m => m.NotificacionesPageModule),
+    canActivate:[AuthGuard]
   },
+  {
+    path: 'tareas',
+    loadChildren: () => import('./pages/tareas/tareas.module').then( m => m.TareasPageModule)
+  },
+  {
+    path: 'add-tareas',
+    loadChildren: () => import('./pages/add-tareas/add-tareas.module').then( m => m.AddTareasPageModule)
+  },
+  {
+    path: 'add-equipo',
+    loadChildren: () => import('./pages/add-equipo/add-equipo.module').then( m => m.AddEquipoPageModule)
+  }
+  
 ];
 
 @NgModule({

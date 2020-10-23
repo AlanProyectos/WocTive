@@ -26,8 +26,13 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 body {
-    font-family: 'Quicksand';font-size: 22px;
+    font-family: 'Quicksand';
+    font-size: 22px;
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Quicksand';
+} 
+ion-label{
+    font-family: 'Quicksand';
+    font-size: 12px;
 }

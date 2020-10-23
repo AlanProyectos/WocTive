@@ -9,3 +9,34 @@ ion-icon {
     font-size: 30px; //Preferred size here
     color: black;
 }
+
+.cuadrado {
+    width: 100px; 
+    height: 100px; 
+    border: 3px solid #555;
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+    margin:0px auto;
+    padding:3%;
+    display: flex;
+}
+
+.Urgente{
+    background: #d90710;
+    border: 3px solid  #970209;
+    
+}
+.Alta{
+    background-color: #0049ae;
+    border: 3px solid  #003176;
+}
+.Media{
+    background: #7e2e85;
+    border: 3px solid  #5a215f;
+    
+}
+.Baja{
+    background: #789032;
+    border: 3px solid  #505f21;
+}

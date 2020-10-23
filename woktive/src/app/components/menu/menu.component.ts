@@ -33,8 +33,9 @@ export class MenuComponent implements OnInit {
 
   logOut(){
     console.log('Logout!!!');
-    this.afAuth.signOut();
-    this.router.navigateByUrl('/login');
+    this.afAuth.signOut().then(()=> {
+      this.router.navigate(['login']);
+    });
   }
 
 

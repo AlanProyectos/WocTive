@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-row>
+
+      <ion-col size="2">
+        <ion-buttons>
+          <ion-button (click)="toggleMenu()">
+            <ion-icon name="body-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
+      </ion-col>
+
+      
+
+      <ion-col size="2">
+        <button color="dark" (click)="showNotifications()">
+          <ion-badge *ngIf="this.tareas.length">{{ this.tareas.length }}</ion-badge>
+          <ion-icon class="campanita" name="notifications"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col size="4">
+        <h5>
+          {{titulo}}
+        </h5>
+      </ion-col>
+
+      <ion-col size="2" (click)="activarBuscador =!activarBuscador">
+        <ion-icon name="search-circle-outline"></ion-icon>
+      </ion-col>
+
+      <ion-col size="2" (click)="presentAlertConfirm()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-searchbar *ngIf="activarBuscador" color="dark"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>

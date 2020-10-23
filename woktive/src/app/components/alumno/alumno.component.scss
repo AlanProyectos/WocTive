@@ -33,3 +33,38 @@
 .titulo{
     margin-left:2rem;
 }
+
+
+.circulo {
+    width: 80px;
+    height: 80px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+    margin:0px auto;
+    padding:3%;
+    display: flex;
+    border: 3px solid #f99e17;
+   
+}
+.circulo > h2 {
+	color: white;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.Urgente{
+    background: #d90710;
+}
+.Alta{
+    background-color: #0049ae;
+}
+.Media{
+    background: #7e2e85;
+}
+.Baja{
+    background: #789032;
+}

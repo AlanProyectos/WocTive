@@ -11,7 +11,7 @@ import { switchMap, map  } from 'rxjs/operators';
 })
 export class AuthService 
 {
-  public isLogged: any = true;
+  public isLogged: any =true;
 
   public user$ : Observable<User>
   private usersCollection: AngularFirestoreCollection<User>;
