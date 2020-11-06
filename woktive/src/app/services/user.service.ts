@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {User} from '../shared/user.interface';
+import {User} from '../shared/user.class';
 
 @Injectable({
     providedIn:'root'

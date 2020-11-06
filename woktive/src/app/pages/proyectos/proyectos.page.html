@@ -2,7 +2,40 @@
 <app-header titulo="Proyectos"></app-header>
 
 <ion-content color="dark">
-    <h2>
-        Proyectos
-    </h2>
+    <ion-row *ngFor="let proyecto of proyectos">
+        <ion-col size="12">
+            <h1>
+                {{proyecto.materiaProyecto}}
+            </h1>
+        </ion-col>
+        <ion-col size="12">
+            <h3>
+                {{proyecto.maestroProyecto.nombre}}
+            </h3>
+        </ion-col>
+        <ion-col size="12">
+            <ion-slides class="SlidesComponent" pager="true" [options]="slideOpts" >
+                <ion-slide *ngFor="let alumno of proyecto.integrantesNombre" class="mb-4">
+                    <ion-row>
+                      <ion-col>
+                        <div class="cuadrado">
+                          <ion-text style="font-size:14px">
+                            {{alumno.nombre}}
+                          </ion-text>
+                        </div>
+                        <h6>
+                         Alumno
+                        </h6>
+                      </ion-col>
+                    </ion-row>
+                </ion-slide>
+            
+            </ion-slides>
+            
+
+        </ion-col>
+        <ion-col size="12">
+            <ion-button expand="full" color="secondary" fill="clear">Agregar Tarea a Proyecto</ion-button>
+        </ion-col>
+    </ion-row>
 </ion-content>

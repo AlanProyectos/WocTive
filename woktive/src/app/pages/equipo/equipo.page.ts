@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Storage} from '@ionic/storage';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/shared/user.interface';
+import { UserInterface } from 'src/app/shared/user.interface';
 
 @Component({
   selector: 'app-equipo',
@@ -9,7 +9,7 @@ import { User } from 'src/app/shared/user.interface';
   styleUrls: ['./equipo.page.scss'],
 })
 export class EquipoPage implements OnInit {
-  usuarios : User ={
+  usuarios : UserInterface ={
     email:'',
     nombre:'',
     rol:'',

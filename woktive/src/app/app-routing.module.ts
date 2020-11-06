@@ -44,8 +44,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/add-tareas/add-tareas.module').then( m => m.AddTareasPageModule)
   },
   {
-    path: 'add-equipo',
-    loadChildren: () => import('./pages/add-equipo/add-equipo.module').then( m => m.AddEquipoPageModule)
+    path: 'add-proyectos',
+    loadChildren: () => import('./pages/add-proyectos/add-proyectos.module').then( m => m.AddProyectosPageModule)
   }
   
 ];

@@ -5,8 +5,8 @@ import { LoadingController, NavParams } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { __awaiter } from 'tslib';
 import {UserService} from '../../services/user.service';
-import {User} from '../../shared/user.interface';
 import { Storage } from '@ionic/storage';
+import { UserInterface } from 'src/app/shared/user.interface';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage implements OnInit {
 
-  usuarios : User ={
+  usuarios : UserInterface ={
     email:'',
     nombre:'',
     rol:'',

@@ -4,6 +4,9 @@ import { User } from '../shared/user.class';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable,of } from 'rxjs';
 import { switchMap, map  } from 'rxjs/operators';
+import { AlumnoService } from './alumno.service';
+import { MaestroService } from './maestro.service';
+import { UserInterface } from '../shared/user.interface';
 
 
 @Injectable({
@@ -17,8 +20,25 @@ export class AuthService
   private usersCollection: AngularFirestoreCollection<User>;
   private users : Observable<User[]>;
 
+  alumno: UserInterface = {
+    email :'',
+    nombre:'',
+    rol: '',
+    uid :''
+  }
 
-  constructor(public afAuth: AngularFireAuth,private db :AngularFirestore) 
+  maestro: UserInterface = {
+    email :'',
+    nombre:'',
+    rol: '',
+    uid:''
+  }
+
+
+  constructor(public afAuth: AngularFireAuth,
+              private db :AngularFirestore,
+              private alumnoSvc:AlumnoService,
+              private maestroSvc:MaestroService) 
   { 
     afAuth.authState.subscribe(user => (this.isLogged = user) );
     this.usersCollection = db.collection<User>('users');
@@ -62,17 +82,40 @@ export class AuthService
   //Register
   async onRegister(email: string, password: string, rol:string, name:string){
 
+
     return new Promise ((resolve,reject) =>{
+
       this.afAuth.createUserWithEmailAndPassword(email, password).then( res =>{
         const uid = res.user.uid;
+
         this.db.collection('users').doc(uid).set({
           uid: uid,
           nombre: name,
           correo:email,
           rol:rol
         })
+        
         resolve(res);
         this.sendVerifiedEmail();
+
+        if(rol =="alumno"){
+          this.alumno.email = email;
+          this.alumno.nombre = name;
+          this.alumno.rol = rol;
+          this.alumno.uid = uid;
+    
+          this.alumnoSvc.addAlumno(this.alumno);
+        }
+        else if(rol=="maestro"){
+          this.maestro.email = email;
+          this.maestro.nombre = name;
+          this.maestro.rol = rol;
+          this.maestro.uid = uid;
+
+          this.maestroSvc.addMaestro(this.maestro);
+        }
+
+        
 
       }).catch(err => reject(err));
     })

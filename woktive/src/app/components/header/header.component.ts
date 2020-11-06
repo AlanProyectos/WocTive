@@ -57,19 +57,18 @@ export class HeaderComponent implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Dar de Alta',
-      message: '¿Que quieres agregar <strong> Tarea </strong> o <strong>Equipo</strong>?',
+      message: '¿Que quieres agregar <strong> Tarea</strong> o <strong>Proyecto</strong>?',
       buttons: [
         {
-          text: 'Equipo',
-          handler: () => {
-            console.log('Confirm Cancel: blah');
-            this.router.navigate(['add-equipo']);
-          }
-        }, {
           text: 'Tarea',
           handler: () => {
-            console.log('Confirm Okay');
             this.router.navigate(['add-tareas'])
+          }
+        },
+        {
+          text: 'Proyecto',
+          handler: () => {
+            this.router.navigate(['add-proyectos'])
           }
         }
       ]

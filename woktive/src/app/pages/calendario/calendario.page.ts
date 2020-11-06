@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Storage} from '@ionic/storage';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/shared/user.interface';
+import { UserInterface } from 'src/app/shared/user.interface';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { User } from 'src/app/shared/user.interface';
 })
 export class CalendarioPage implements OnInit {
 
-  usuarios : User ={
+  usuarios : UserInterface ={
     email:'',
     nombre:'',
     rol:'',

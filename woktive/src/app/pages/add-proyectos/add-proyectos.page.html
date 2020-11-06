@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <h4>
+        Agregar Proyecto
+      </h4>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+      <ion-row class="mt-2">
+        <ion-col>
+          <ion-item color="dark">
+            <ion-input #nombreProyecto placeholder="Nombre del Proyecto" autocapitalize type="text">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="2">
+          <ion-icon (click)="addIntegrante()" name="person-add"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+                <ion-item color="dark">
+                  <ion-label>Integrante</ion-label>
+                  <ionic-selectable headerColor="dark" bodyColor="dark" #integrante [(ngModel)]="seleccionados" [isMultiple]="true" [items]="alumnos" itemValueField="uid" itemTextField="nombre">
+                    <ng-template ionicSelectableCloseButton>
+                      <ion-icon name="close-circle">
+
+                      </ion-icon>
+
+                    </ng-template>
+                    
+                  </ionic-selectable>
+                </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      
+
+
+      <ion-row>
+        <ion-col size="2">
+          <ion-icon name="library"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-item color="dark">
+            <ion-input #materiaProyecto autocapitalize placeholder="Materia" type="text">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col size="2">
+          <ion-col size="2">
+            <ion-icon name="logo-apple"></ion-icon>
+          </ion-col>
+        </ion-col>
+        <ion-col size="10">
+  
+          <ion-item color="dark">
+            <ion-label>Maestro</ion-label>
+            <ionic-selectable headerColor="dark" #maestroProyecto [(ngModel)]="maestroseleccionado" [items]="maestros" itemValueField="uid" itemTextField="nombre">
+              
+            </ionic-selectable>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row style="text-align:center">
+        <ion-col>
+          <ion-button color="light" (click)="CrearEquipo(nombreProyecto,integrante, materiaProyecto,maestroProyecto)">
+            <strong>
+              Crear Equipo
+            </strong>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+  
+  
+</ion-content>

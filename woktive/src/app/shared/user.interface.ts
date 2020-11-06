@@ -1,6 +1,6 @@
-export interface User{
+export interface UserInterface{
     email: string;
     nombre:string;
     rol:string;
-    uid:string;
+    uid ?:string;
 }
